@@ -53,18 +53,16 @@ public class InsertIntervals {
         return ans;
     }
 
-    public int[][] insert2(int[][] intervals, int[] newInterval){
+    public int[][] insert2(int[][] intervals, int[] newInterval) {
         int[][] arr = getInts(intervals, newInterval);
         if (arr != null) return arr;
         List<int[]> temp = new ArrayList<>();
-        for(int i=0;i<intervals.length;i++){
-            if(intervals[i][1]<newInterval[0]) temp.add(intervals[i]);
-             else if(intervals[i][0]>newInterval[1]){
-                 temp.add(newInterval);
-                 newInterval=intervals[i];
-            }
-            else if(intervals[i][1] >= newInterval[0] || intervals[i][0] <= newInterval[1])
-            {
+        for (int i = 0; i < intervals.length; i++) {
+            if (intervals[i][1] < newInterval[0]) temp.add(intervals[i]);
+            else if (intervals[i][0] > newInterval[1]) {
+                temp.add(newInterval);
+                newInterval = intervals[i];
+            } else if (intervals[i][1] >= newInterval[0] || intervals[i][0] <= newInterval[1]) {
                 newInterval[0] = Math.min(intervals[i][0], newInterval[0]);
                 newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
             }
@@ -101,3 +99,4 @@ public class InsertIntervals {
 
     }
 }
+
