@@ -17,10 +17,10 @@ public class RussianDollEnvelopes {
         Arrays.sort(envelopes, RussianDollEnvelopes::compareHeightAndWidth);
         //lambda version to compare
         Arrays.sort(envelopes, (env1, env2) -> {
-            if (env1[0] < env2[0]) return 0;
+            if (env1[0] < env2[0]) return -1;
             else if (env1[0] > env2[0]) return 1;
             else {
-                if (env1[1] < env2[1]) return 0;
+                if (env1[1] < env2[1]) return -1;
                 else if (env1[1] > env2[1]) return 1;
             }
             return 1;
