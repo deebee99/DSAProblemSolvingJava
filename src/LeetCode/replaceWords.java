@@ -40,22 +40,22 @@ public class replaceWords {
         Trie trie=new Trie();
         TrieNode root=trie.getRoot();
         for(String s : dictionary) insert(root,s);
-        String ans="";
+        StringBuilder ans= new StringBuilder();
 
-        for(String s : sentence.split(" ")) ans+=wordBreak(root,s)+" ";
+        for(String s : sentence.split(" ")) ans.append(wordBreak(root, s)).append(" ");
 
-        return ans.trim();
+        return ans.toString().trim();
     }
 
     private String wordBreak(TrieNode root, String s) {
         TrieNode cur=root;
-        String replaceString="";
+        StringBuilder replaceString= new StringBuilder();
         for(int i=0;i<s.length();i++){
             char ch=s.charAt(i);
-            replaceString+=ch;
+            replaceString.append(ch);
             TrieNode node=cur.children[ch-'a'];
             if(node==null) return s;
-            if(node.endOfWord) return replaceString;
+            if(node.endOfWord) return replaceString.toString();
             cur=node;
         }
         return s;

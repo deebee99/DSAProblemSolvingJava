@@ -56,7 +56,7 @@ public class StreamOfCharacters {
             for (int i = characterList.size() - 1; i >= 0; i--) {
                 TrieNode node = cur.children[characterList.get(i) - 'a'];
                 if (node == null) return false;
-                if (node.endOfWord == true) return true;
+                if (node.endOfWord) return true;
                 cur = node;
             }
             return cur.endOfWord;
